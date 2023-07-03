@@ -1,0 +1,82 @@
+@model IEnumerable<SistemaTarefas.Entities.Tarefa>
+
+@{
+    ViewData["Title"] = "Projetos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Tarefas</h1>
+
+<p>
+    <a asp-action="Create">Criar nova tarefa</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.id_tarefa)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.hora_inicio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.hora_fim)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.estado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.descricao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.precohora)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Projetos.nomeProjeto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Users.name)
+            </th>
+            
+            @*<th>
+                @Html.DisplayNameFor(model => model.User)
+            </th>*@
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.id_tarefa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.hora_inicio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.hora_fim)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.estado)
+            </td>
+            <th>
+                @Html.DisplayFor(modelItem => item.descricao)
+            </th>
+            <th>
+                @Html.DisplayFor(modelItem => item.precohora)
+            </th>
+            <td>
+                @Html.DisplayFor(modelItem => item.Projetos.nomeProjeto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Users.name)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.id_tarefa">Edit</a> | 
+                <a asp-action="Details" asp-route-id="@item.id_tarefa">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.id_tarefa">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

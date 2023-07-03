@@ -1,0 +1,50 @@
+@model SistemaTarefas.Entities.Projeto
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var errors = ViewData["Errors"] as List<string> ?? new List<string>();
+}
+
+<h1>Editar</h1>
+
+<h4>Projeto</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="idproject" />
+            <div class="form-group">
+                <label asp-for="nomeProjeto" class="control-label"></label>
+                <input asp-for="nomeProjeto" class="form-control" />
+                <span asp-validation-for="nomeProjeto" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="precohora" class="control-label"></label>
+                <input asp-for="precohora" class="form-control" />
+                <span asp-validation-for="precohora" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="nomecliente" class="control-label"></label>
+                <input asp-for="nomecliente" class="form-control" />
+                <span asp-validation-for="nomecliente" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+            <div style="color: red;">
+                @foreach (var error in errors)
+                {
+                    <p>@error</p>
+                }
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Voltar</a>
+</div>
+

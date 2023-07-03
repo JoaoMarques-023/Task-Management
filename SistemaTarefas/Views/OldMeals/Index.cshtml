@@ -1,0 +1,31 @@
+﻿@model List<ProjetoViewModel>
+
+@{
+    ViewData["Title"] = "Meals";
+    ViewData["MenuName"] = "Meals";
+}
+
+<p>Página de todos os Projetos <are></are> listados</p>
+
+
+<table style="width: 100%">
+    <thead>
+    <tr style="color: darkgreen;">
+        <th/>
+        <th>Nome</th>
+        <th>Calories</th>
+        <th>User</th>
+        <th>Tempo</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var proj in Model.OrderByDescending(x => x.precohora))
+    {
+        <tr>
+            <th><input type="checkbox"/></th>
+            <td>@proj.nome</td>
+            <td>@proj.precohora</td>
+        </tr>
+    }
+    </tbody>
+</table>

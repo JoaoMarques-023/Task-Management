@@ -1,0 +1,55 @@
+@model IEnumerable<SistemaTarefas.Entities.Projeto>
+
+@{
+    ViewData["Title"] = "Projetos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Projetos</h1>
+
+<p>
+    <a asp-action="Create">Criar novo projeto</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.nomeProjeto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.precohora)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nomecliente)
+            </th>
+            @*<th>
+                @Html.DisplayNameFor(model => model.User)
+            </th>*@
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.nomeProjeto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.precohora)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nomecliente)
+            </td>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.User.Name)
+            </td>*@
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.idproject">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.idproject">Detalhes</a> |
+                <a asp-action="Delete" asp-route-id="@item.idproject">ApagarProj</a> |
+                <a asp-action="DeleteALL" asp-route-id="@item.idproject">ApagarProjTarefas</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

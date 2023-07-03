@@ -1,0 +1,117 @@
+@using SistemaTarefas.Entities
+@model SistemaTarefas.Entities.Projeto
+
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Projeto</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.nomeProjeto)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.nomeProjeto)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.precohora)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.precohora)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.nomecliente)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.nomecliente)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Tarefas)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Tarefas)
+        </dd>
+        @*<dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.User)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.User.Email)
+        </dd>*@
+    </dl>
+    <a asp-action="Edit" asp-route-id="@Model.idproject">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
+<table class="table">
+    <tr>
+        <th>ID Tarefa</th>
+        <th>Data Inicial</th>
+        <th>Data Final</th>
+        <th>Estado</th>
+        <th>Descricao</th>
+        <th>Preco Hora</th>
+    </tr>
+    @*<thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Tarefas.)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tarefas.hora_inicio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tarefas.hora_fim)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tarefas.estado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tarefas.descricao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.precohora)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tarefas.Projetos.nomeProjeto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tarefas.Users.name)
+            </th>
+            
+            $1$<th>
+                @Html.DisplayNameFor(model => model.User)
+            </th>#1#
+            <th></th>
+        </tr>
+    </thead>*@
+    <tbody>
+    @foreach (var item in Model.Tarefas)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.id_tarefa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.hora_inicio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.hora_fim)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.estado)
+            </td>
+            <th>
+                @Html.DisplayFor(modelItem => item.descricao)
+            </th>
+            <th>
+                @Html.DisplayFor(modelItem => item.precohora)
+            </th>
+        </tr>
+    }
+    </tbody>
+</table>

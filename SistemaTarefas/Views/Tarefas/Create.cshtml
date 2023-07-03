@@ -1,0 +1,74 @@
+@using SistemaTarefas.Entities
+@model SistemaTarefas.Entities.Tarefa
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    
+    var errors2 = ViewData["Errors2"] as List<string> ?? new List<string>();
+}
+
+<h1>Criar</h1>
+
+<h4>Tarefa</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="hora_inicio" class="control-label"></label>
+                <input asp-for="hora_inicio" class="form-control" value="@DateTime.Now" />
+                <span asp-validation-for="hora_inicio" class="text-danger"></span>
+            </div>
+            @*<div class="form-group">
+                <label asp-for="idproject" class="control-label"></label>
+                <select asp-for="idproject" class ="form-control" asp-items="ViewBag.UserId"></select>
+            </div>*@
+            <div class="form-group">
+                <label asp-for="hora_fim" class="control-label"></label>
+                <input asp-for="hora_fim" class="form-control" />
+                <span asp-validation-for="hora_fim" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="estado" class="control-label"></label>
+                <select asp-for="estado" class ="form-control" asp-items="ViewBag.estado"></select>
+                <span asp-validation-for="estado" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="descricao" class="control-label"></label>
+                <input asp-for="descricao" class ="form-control"/>
+                <span asp-validation-for="descricao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="precohora" class="control-label"></label>
+                <input asp-for="precohora" class ="form-control"/>
+                <span asp-validation-for="precohora" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="id_utilizador" class="control-label"></label>
+                <select asp-for="id_utilizador" class ="form-control" value="null" asp-items="ViewBag.user"></select>
+                <span asp-validation-for="id_utilizador" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="id_projeto" class="control-label"></label>
+                <select asp-for="id_projeto" class ="form-control" value="null" asp-items="ViewBag.projeto"></select>
+                <span asp-validation-for="id_projeto" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+            <div style="color: red;">
+                @foreach (var error2 in errors2)
+                {
+                    <p>@error2</p>
+                }
+                </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Voltar</a>
+</div>
+

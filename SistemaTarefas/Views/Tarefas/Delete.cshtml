@@ -1,0 +1,46 @@
+@model SistemaTarefas.Entities.Tarefa
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Apagar</h1>
+
+<h3>Tem a certeza que pretende eliminar a tarefa?</h3>
+<div>
+    <h4>Tarefa</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.id_tarefa)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.id_tarefa)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.hora_fim)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.hora_fim)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.hora_inicio)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.hora_inicio)
+        </dd>
+        @*<dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.User)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.User.Email)
+        </dd>*@
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="id_tarefa" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Voltar</a>
+    </form>
+</div>

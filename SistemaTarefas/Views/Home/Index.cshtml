@@ -1,0 +1,15 @@
+﻿@using Microsoft.AspNetCore.Http
+@using SistemaTarefas
+@using SistemaTarefas.Entities
+@{
+    ViewData["Title"] = "Home";
+    ViewData["MenuName"] = "Sistema Tarefas";
+    
+    Layout = "_Layout";
+}
+
+<div class="text-center">
+     <h1 class="display-4">Bem vindo @(UserSession.Username??"")! </h1>  
+       <p> Sistema de rastreio de tempo em tarefas </p>
+   
+</div>
